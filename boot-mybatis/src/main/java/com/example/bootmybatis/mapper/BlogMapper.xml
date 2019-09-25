@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.bootmybatis.mapper.BlogMapper">
+    <select id="getBlogById" parameterType="java.lang.String" resultType="com.example.bootmybatis.entity.Blog">
+	    select * from t_blog where id=#{id}
+    </select>
+
+</mapper>

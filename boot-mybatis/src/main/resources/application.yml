@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid相关配置
+    druid:
+      #监控统计拦截的filters
+      filter:
+        commons-log:
+          statement-log-enabled: true
+          statement-executable-sql-log-enable: true
+      #mysql驱动
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #基本属性
+      url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      username: root
+      password: 123456
+      #配置初始化大小/最小/最大
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      #获取连接等待超时时间
+      max-wait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 60000
+  aop:
+    proxy-target-class: true
+  redis:
+    database: 0
+    host: 47.111.165.61
+    port: 46379
+    password: Yjys6111
+
+
+swagger:
+  title: "springboot-Myabtis整合"
+  desc: "springboot的配置与整合学习"
+  version: "2.0"
+
+
+  #mybatis配置
+  mybatis:
+    #指定mapper.xml的位置
+    mapper-locations: classpath:com.example.bootmybatis.mapper/*.xml
+    #指定Bean的位置
+    type-aliases-package: com.example.bootmybatis.entity
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%5p) %clr([%15.15t]){cyan} %clr(%X{__traceId}){magenta} %clr(%-40.40logger{39}){blue} %clr(:) %m%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%t] %X{__traceId} %-40.40logger{39} : %m%n"
+  level:
+    com.example.bootmybatis.mapper: debug   #设置mapper.java包为debug输出
+  file: c:/tmp/xxx-xxx-web/log.log
+  file.max-history: 30
+
